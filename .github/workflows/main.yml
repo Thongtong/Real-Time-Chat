@@ -30,7 +30,9 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }} # User of the server you want to ssh into
  
           script: |
+            cd Real-Time-Chat
             git pull    
-            npm install           
-            pm2 start npm --name "test" -- start
+            npm install  
+            pm2 delete PP
+            pm2 start npm --name "PP" -- start
             echo 'Deployment successful to digital ocean'
